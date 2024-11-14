@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const header = "header";
+export const sidNav = "sidNav";
+export const main = "main";
+
+const GlobalStyle = createGlobalStyle`
 
 *{
     margin: 0;
@@ -11,14 +16,7 @@ export const GlobalStyle = createGlobalStyle`
 body{
     font-family: "Poppins", sans-serif;
     background-color:#07080B;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0px 25px;
-
+    max-width: 100%;
 }
 
 a{
@@ -31,4 +29,25 @@ ul>li{
     list-style: none;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 `;
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "${sidNav} ${main} ${main}"
+    "${sidNav} ${main} ${main}";
+    height: 100vh; 
+`;
+
+export { GlobalStyle, Container };

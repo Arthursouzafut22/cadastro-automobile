@@ -1,9 +1,21 @@
 import * as S from "./Styles";
 import Input from "../Input/Input";
+import { useState } from "react";
 
 const FormCadastro = () => {
+  const [fileName, setFileName] = useState<string>("");
+  
+  function changeFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files;
+
+    if (files && files.length > 0) {
+      const file = files[0].name;
+      setFileName(file);
+    }
+  }
+
   return (
-    <S.Form>
+    <S.Form onSubmit={(e) => e.preventDefault()}>
       <h1>Cadastro / Veículo</h1>
       <Input
         type="text"
@@ -45,7 +57,12 @@ const FormCadastro = () => {
         value={""}
         placeholder="Digite a placa"
       />
-      <input type="file" name="file" id="file" />
+      <S.FileInputWrapper>
+        <S.HiddenFileInput id="file" onChange={changeFile} />
+        <S.CustomButton htmlFor="file">
+          {fileName ? fileName : "Escolher Arquivo"}
+        </S.CustomButton>
+      </S.FileInputWrapper>
       <S.Button>Cadastrar Veículo</S.Button>
     </S.Form>
   );

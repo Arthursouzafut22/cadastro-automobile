@@ -1,11 +1,15 @@
-import { GlobalStyle } from "./Global";
-import FormCadastro from "./components/FormCadastro/FormCadastro";
+import { GlobalStyle, Container } from "./Global";
+import SidNav from "./components/SidNav/SidNav";
+import Wrapper from "./components/Wrapper/Wrapper";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <FormCadastro />
+      <Container>
+        <GlobalStyle />
+        <SidNav />
+        <Wrapper />
+      </Container>
     </>
   );
 }
