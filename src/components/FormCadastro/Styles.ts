@@ -16,6 +16,12 @@ export const Form = styled.form`
   gap: 15px;
   border: 1px solid #323f4a;
   border-radius: 8px;
+
+  p{
+    color:red;
+    font-size:14px;
+    margin:0;
+  }
 `;
 
 export const Button = styled.button`

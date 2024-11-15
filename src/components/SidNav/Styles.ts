@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { sidNav } from "../../Global";
 
+
+
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
